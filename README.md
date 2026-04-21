@@ -1,29 +1,189 @@
-# bt_api_coinspot
+# COINSPOT
 
-CoinSpot exchange package for `bt_api`.
+Exchange plugin for bt_api framework.
 
-## Installation
+[![PyPI Version](https://img.shields.io/pypi/v/bt_api_coinspot.svg)](https://pypi.org/project/bt_api_coinspot/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/bt_api_coinspot.svg)](https://pypi.org/project/bt_api_coinspot/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/cloudQuant/bt_api_coinspot/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudQuant/bt_api_coinspot/actions)
+[![Docs](https://readthedocs.org/projects/bt-api-coinspot/badge/?version=latest)](https://bt-api-coinspot.readthedocs.io/)
+
+---
+
+## English | [中文](#中文)
+
+### Overview
+
+This package provides **CoinSpot exchange plugin for bt_api** for the [bt_api](https://github.com/cloudQuant/bt_api_py) framework. It offers a unified interface for interacting with **COINSPOT** exchange.
+
+### Features
+
+- Exchange integration with bt_api
+- REST API support
+- Market data access
+- Basic trading operations
+
+### Installation
 
 ```bash
 pip install bt_api_coinspot
 ```
 
-## Usage
+Or install from source:
 
-When installed alongside `bt_api_py`, the package is discovered automatically by the unified plugin loader.
+```bash
+git clone https://github.com/cloudQuant/bt_api_coinspot
+cd bt_api_coinspot
+pip install -e .
+```
 
-## Supported Exchanges
+### Quick Start
 
-- COINSPOT___SPOT
+```python
+from bt_api_coinspot import CoinspotApi
 
-## Authentication
+# Initialize
+feed = CoinspotApi(api_key="your_key", secret="your_secret")
 
-CoinSpot uses HMAC-SHA512 authentication for private endpoints. Provide your API key and secret when initializing.
+# Get ticker data
+ticker = feed.get_ticker("BTCUSDT")
+print(ticker)
+```
 
-## API Endpoints
+### Supported Operations
 
-- REST: `https://www.coinspot.com.au`
+| Operation | Status |
+|-----------|--------|
+| Ticker | ✅ |
+| OrderBook | ✅ |
+| Trades | ✅ |
+| Bars/Klines | ✅ |
+| Orders | ✅ |
+| Balances | ✅ |
+| Positions | ✅ |
 
-## Symbol Format
+### Online Documentation
 
-CoinSpot uses coin shortnames (e.g., `BTC`, `ETH`) rather than trading pairs.
+| Resource | Link |
+|----------|------|
+| English Docs | https://bt-api-coinspot.readthedocs.io/ |
+| Chinese Docs | https://bt-api-coinspot.readthedocs.io/zh/latest/ |
+| GitHub Repository | https://github.com/cloudQuant/bt_api_coinspot |
+| Issue Tracker | https://github.com/cloudQuant/bt_api_coinspot/issues |
+
+### Requirements
+
+- Python 3.9+
+- bt_api_base >= 0.15
+
+### Architecture
+
+```
+bt_api_coinspot/
+├── src/bt_api_coinspot/     # Source code
+│   ├── containers/     # Data containers
+│   ├── feeds/          # API feeds
+│   ├── gateway/       # Gateway adapter
+│   └── plugin.py      # Plugin registration
+├── tests/             # Unit tests
+└── docs/             # Documentation
+```
+
+### License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+### Support
+
+- Report bugs via [GitHub Issues](https://github.com/cloudQuant/bt_api_coinspot/issues)
+- Email: yunjinqi@gmail.com
+
+---
+
+## 中文
+
+### 概述
+
+本包为 [bt_api](https://github.com/cloudQuant/bt_api_py) 框架提供 **CoinSpot exchange plugin for bt_api**。它提供了与 **COINSPOT** 交易所交互的统一接口。
+
+### 功能特点
+
+- bt_api交易所集成
+- REST API支持
+- 市场数据访问
+- 基本交易操作
+
+### 安装
+
+```bash
+pip install bt_api_coinspot
+```
+
+或从源码安装：
+
+```bash
+git clone https://github.com/cloudQuant/bt_api_coinspot
+cd bt_api_coinspot
+pip install -e .
+```
+
+### 快速开始
+
+```python
+from bt_api_coinspot import CoinspotApi
+
+# 初始化
+feed = CoinspotApi(api_key="your_key", secret="your_secret")
+
+# 获取行情数据
+ticker = feed.get_ticker("BTCUSDT")
+print(ticker)
+```
+
+### 支持的操作
+
+| 操作 | 状态 |
+|------|------|
+| Ticker | ✅ |
+| OrderBook | ✅ |
+| Trades | ✅ |
+| Bars/Klines | ✅ |
+| Orders | ✅ |
+| Balances | ✅ |
+| Positions | ✅ |
+
+### 在线文档
+
+| 资源 | 链接 |
+|------|------|
+| 英文文档 | https://bt-api-coinspot.readthedocs.io/ |
+| 中文文档 | https://bt-api-coinspot.readthedocs.io/zh/latest/ |
+| GitHub 仓库 | https://github.com/cloudQuant/bt_api_coinspot |
+| 问题反馈 | https://github.com/cloudQuant/bt_api_coinspot/issues |
+
+### 系统要求
+
+- Python 3.9+
+- bt_api_base >= 0.15
+
+### 架构
+
+```
+bt_api_coinspot/
+├── src/bt_api_coinspot/     # 源代码
+│   ├── containers/     # 数据容器
+│   ├── feeds/          # API 源
+│   ├── gateway/        # 网关适配器
+│   └── plugin.py       # 插件注册
+├── tests/             # 单元测试
+└── docs/             # 文档
+```
+
+### 许可证
+
+MIT 许可证 - 详见 [LICENSE](LICENSE)。
+
+### 技术支持
+
+- 通过 [GitHub Issues](https://github.com/cloudQuant/bt_api_coinspot/issues) 反馈问题
+- 邮箱: yunjinqi@gmail.com
