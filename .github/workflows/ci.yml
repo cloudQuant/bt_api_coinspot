@@ -37,7 +37,7 @@ jobs:
 
   test:
     name: Test
-    runs-on: ${ matrix.os }
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     needs: quality
     strategy:
