@@ -15,3 +15,32 @@ dev = ["pytest", "ruff"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bt_api_coinspot"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+  "I",
+  "UP",
+  "F",
+  "E",
+  "W",
+  "TC",
+  "SIM",
+]
+ignore = [
+  "TC002",
+  "TC004",
+  "SIM102",
+  "SIM108",
+  "E501",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["bt_api_coinspot"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

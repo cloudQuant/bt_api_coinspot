@@ -32,7 +32,7 @@ class CoinSpotBarData(BarData):
         self.local_update_time = time.time()
         self.has_been_init_data = False
 
-    def init_data(self) -> "CoinSpotBarData":
+    def init_data(self) -> CoinSpotBarData:
         if not self.has_been_json_encoded:
             self.bar_data = json.loads(self.bar_info) if isinstance(self.bar_info, str) else []
             self.has_been_json_encoded = True

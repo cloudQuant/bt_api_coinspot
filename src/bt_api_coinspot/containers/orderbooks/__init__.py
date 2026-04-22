@@ -31,7 +31,7 @@ class CoinSpotOrderBookData(OrderBookData):
         self.all_data: dict[str, Any] | None = None
         self.has_been_init_data = False
 
-    def init_data(self) -> "CoinSpotOrderBookData":
+    def init_data(self) -> CoinSpotOrderBookData:
         if not self.has_been_json_encoded:
             self.order_book_data = (
                 json.loads(self.order_book_info) if isinstance(self.order_book_info, str) else {}

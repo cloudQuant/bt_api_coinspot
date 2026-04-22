@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Any
-
 from bt_api_base.feeds.capability import Capability
 
 from bt_api_coinspot.feeds.live_coinspot.request_base import CoinSpotRequestData

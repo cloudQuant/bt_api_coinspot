@@ -4,7 +4,6 @@ import hashlib
 import hmac
 import json
 import time
-from typing import Any
 from urllib.parse import urlencode
 
 from bt_api_base.containers.requestdatas.request_data import RequestData

@@ -34,7 +34,7 @@ class CoinSpotTickerData(TickerData):
         self.last_volume: float | None = None
         self.has_been_init_data = False
 
-    def init_data(self) -> "CoinSpotTickerData":
+    def init_data(self) -> CoinSpotTickerData:
         if not self.has_been_json_encoded:
             if isinstance(self.ticker_info, str):
                 self.ticker_data = json.loads(self.ticker_info)

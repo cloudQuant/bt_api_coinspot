@@ -31,7 +31,7 @@ class CoinSpotOrderData(OrderData):
         self.local_update_time = time.time()
         self.has_been_init_data = False
 
-    def init_data(self) -> "CoinSpotOrderData":
+    def init_data(self) -> CoinSpotOrderData:
         if not self.has_been_json_encoded:
             self.order_data = (
                 json.loads(self.order_info) if isinstance(self.order_info, str) else {}
