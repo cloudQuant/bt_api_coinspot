@@ -3,8 +3,8 @@ from __future__ import annotations
 from unittest.mock import AsyncMock
 
 import pytest
-
 from bt_api_base.containers.requestdatas.request_data import RequestData
+
 from bt_api_coinspot.feeds.live_coinspot.request_base import CoinSpotRequestData
 
 
